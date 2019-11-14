@@ -29,7 +29,8 @@ public class NumberUtil {
 
     }
 
-    private static final DecimalFormat amountFormat = new DecimalFormat("###,###,###,##0.00");
+    private static final DecimalFormat amountFormat = new DecimalFormat("#,##,##,##,##,##0.00");
+    private static final DecimalFormat amountFormatNoDecimal = new DecimalFormat("#,##,##,##,##,##0");
 
     /**
      * 四舍五入
@@ -109,6 +110,9 @@ public class NumberUtil {
     public static String getAmountValue(double value) {
         return amountFormat.format(value);
     }
+    public static String getAmountValueNoDecimal(double value) {
+        return amountFormatNoDecimal.format(value);
+    }
     /**
      * 金额格式化
      *
@@ -117,6 +121,10 @@ public class NumberUtil {
      */
     public static String getAmountValue(String value) {
         return amountFormat.format(Double.parseDouble(value));
+    }
+
+    public static String getAmountValueNoDecimal(String value) {
+        return amountFormatNoDecimal.format(Double.parseDouble(value));
     }
     /**
      * int -tostring
@@ -163,5 +171,6 @@ public class NumberUtil {
             }
         }
     }
+
 
 }
